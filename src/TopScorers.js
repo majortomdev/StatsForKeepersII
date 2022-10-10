@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default class TopScorers extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             topscorers: "Not loaded yet"
         };
     }
 
     componentDidMount = () => {
-        axios.get("/soccer/topscorers?seasonId=1980").then(response => {
-            console.log(response.data);
+        axios.get("/soccer/topscorers?seasonId=1980").then(topscorers=> {
+            this.setState({topscorers})  
         });
     };
 

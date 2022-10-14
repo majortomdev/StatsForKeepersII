@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import './css/LeagueStandings.css'
+import './LeagueStandings.css';
+import Table from "react-bootstrap/Table";
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const LeagueStandings = () => {
     const [data, getData] = useState([]);
@@ -10,7 +12,7 @@ const LeagueStandings = () => {
     }, [])
 
     const getStandings = () => {
-        axios.get("/soccer/standings/1980")
+        axios.get("/soccer/standings/370")
         .then((TeamStats) => {
             //console.log(TeamStats);
             //data = res.get("data");
@@ -30,7 +32,9 @@ const LeagueStandings = () => {
             {/* <h1>Final Positions for Season xxx</h1> */}
 
 
-            <table className="table">
+            {/* <table className="table"> */}
+
+            <Table responsive>
                 <tbody>
                 <tr>
                     <th>#</th>
@@ -53,8 +57,8 @@ const LeagueStandings = () => {
                     </tr>
                 ))}
                 </tbody>
-            </table>
-
+            {/* </table> */}
+            </Table>
         </>
         );
 }

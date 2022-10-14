@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.dropDown {
+  background: #f0f0f0;
+  display: inline-block;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -15,12 +20,14 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
+  font-size: large;
   color: white;
 }
 
@@ -35,4 +42,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@font-face {
+  font-family: 'Adler';
+  src: local('Adler'), url(./fonts/Adler.ttf) format('ttf');
+}
+
+.font-Adler {
+  font-family: 'Adler';
+  src: local('Adler'), url(./fonts/Adler.ttf) format('ttf');
+}
+
+.columnLS {
+  width: 30%;
+  float: right;
+}
+
+h1{
+  font-family: 'Adler';
+  font-size: 100px;
 }

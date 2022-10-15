@@ -17,7 +17,7 @@ const LeagueStandings = () => {
             //console.log(TeamStats);
             //data = res.get("data");
             const statsArray = TeamStats.data;
-            console.log(statsArray)
+            //console.log(statsArray)
 
                 getData(statsArray); 
         })
@@ -29,7 +29,7 @@ const LeagueStandings = () => {
         <>
             {/* <button>Get League Standings</button> */}
 
-            {/* <h1>Final Positions for Season xxx</h1> */}
+            <h5>Final Positions for Season xxx</h5>
 
 
             {/* <table className="table"> */}

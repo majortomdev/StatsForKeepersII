@@ -39,10 +39,10 @@ const ListItem = styled("li")`
 `;
 
 const yearsList = [
-    "2018/19",
-    "2019/20",
-    "2020/21",
-    "2021/22"
+    "18/19",
+    "19/20",
+    "20/21",
+    "21/22"
 ]
 
 const Years = () => {
@@ -50,24 +50,24 @@ const Years = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpen);
 
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedYear, setSelectedYear] = useState("21/22");
 
-    const onOptionClicked = value => () => {
-        setSelectedOption(value);
+    const onYearClicked = value => () => {
+        setSelectedYear(value);
         setIsOpen(false);
-        console.log(selectedOption);
+        console.log(selectedYear);
       };
     return (
-        <div className="dropDown">
+        <div className="dropDown" >
           <h4>Seasons</h4>
           <DropDownContainer>
-            <DropDownHeader onClick={toggling}>{selectedOption? selectedOption: yearsList[3]}</DropDownHeader>
+            <DropDownHeader onClick={toggling}>{selectedYear}</DropDownHeader>
             {isOpen && (
             <DropDownListContainer>
               <DropDownList>
 
               {yearsList.map(year => (
-                <ListItem onClick={onOptionClicked(year)} key={year}>
+                <ListItem onClick={onYearClicked(year)} key={year}>
                   {year}
                 </ListItem>
               ))}

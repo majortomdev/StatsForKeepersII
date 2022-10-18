@@ -98,24 +98,26 @@ function getKeyByValue(object, value) {
     return Object.keys(object).find(key => object[key] === value);
   }
   
-
-const Leagues = () => {
+  const Leagues = props => {
 
     const [isOpen, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpen);
 
-    // const [selectedOption, setSelectedOption] = useState(null);
     const [selectedLeague, setSelectedLeague] = useState(getKeyByValue(leagueList,237));
 
-    const [selectedLeagueId, setSelectedLeagueId] = useState(leagueList["English Premier"]);
+    //const [selectedLeagueId, setSelectedLeagueId] = useState(leagueList["English Premier"]);
+
+    useEffect(() => {
+      
+    })
+
+
 
     const onLeagueClicked = value => () => {
-        console.log(value)
         setSelectedLeague(value);
-        setSelectedLeagueId(leagueList[value])
+        //setSelectedLeagueId(leagueList[value])
+        //props.setLeagueId(leagueList[value]);
         setIsOpen(false);
-        console.log(selectedLeague);
-        console.log(selectedLeagueId);
       };
     return (
         <div className="dropDown">

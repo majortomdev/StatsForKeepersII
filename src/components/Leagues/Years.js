@@ -45,7 +45,7 @@ const yearsList = [
     "21/22"
 ]
 
-const Years = () => {
+const Years = ({setYear}) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpen);
@@ -54,6 +54,7 @@ const Years = () => {
 
     const onYearClicked = value => () => {
         setSelectedYear(value);
+        setYear=value;
         setIsOpen(false);
         console.log(selectedYear);
       };

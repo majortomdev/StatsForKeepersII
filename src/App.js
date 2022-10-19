@@ -22,10 +22,10 @@ function App() {
       <header className="App-header"><h1 className="font-Adler"> Footie Stats For Fans</h1> </header>
           {/* <TopScorers></TopScorers> */}
           <Leagues leagueId={leagueId} setLeagueId={setLeagueId}></Leagues>
-          {console.log("QQQQQQQQQQQQQQQQQQQQ   "+leagueId)}
-          <Years year={setYear}></Years>
+          {console.log("QQQQQQQleagueId =   "+leagueId +" , year=  "+year)}
+          <Years year={year} setYear={setYear}></Years>
           <Button>Display Standings</Button>
-          <Scorers></Scorers>
+          {/* <Scorers></Scorers> */}
           <div className='columnLS'>
             {/* <LeagueBanner></LeagueBanner> */}
             <LeagueStandings leagueId={leagueId} year={year}></LeagueStandings>

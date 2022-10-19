@@ -13,29 +13,21 @@ const LeagueStandings = (props) => {
         console.log("LeagueStnadings <useEffect>   "+leagueId+",  "+year);
         getSeasonId();
         getStandings();
-    }, [leagueId])
+    }, [leagueId, year])
+
     const [season, setSeason] = useState(1980);
     const getSeasonId = () => {
-        console.log("GETSEASONID-START> :  "+leagueId+"---"+year)
         axios.get("/soccer/getSeasonId?leagueId="+leagueId+"&year="+year)
         .then((response) => {
-            console.log("GETSEASONID-THEN>  getSeasomId", response.data);
             const newSeason = response.data;
             setSeason(newSeason);
-            console.log("GETSEASONID-THEN> - new season id should be: ", response.data);
         })
     }
-    // const seasonId = axios.get("/soccer/getSeasonId?leagueId="+237+"&year="+"20/21");
-    // console.log("ASDF   in leafgueStandings got seasonId  "+seasonId);
 
     const getStandings = () => {
-        console.log("GET_STANDINGS season id is :"+season)
         axios.get("/soccer/standings/"+season)
         .then((TeamStats) => {
-            //console.log(TeamStats);
-            //data = res.get("data");
             const statsArray = TeamStats.data;
-            //console.log(statsArray)
 
                 getData(statsArray); 
         })

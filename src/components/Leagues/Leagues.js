@@ -87,7 +87,7 @@ const leagueList = {
 //             return leagueList[key];
 //         });
 
-    const leagueArray = Object.keys(leagueList)
+  const leagueArray = Object.keys(leagueList)
     .map(function(key){
         return key;
     });
@@ -105,18 +105,10 @@ function getKeyByValue(object, value) {
 
     const [selectedLeague, setSelectedLeague] = useState(getKeyByValue(leagueList,237));
 
-    //const [selectedLeagueId, setSelectedLeagueId] = useState(leagueList["English Premier"]);
-
-    useEffect(() => {
-      
-    })
-
-
-
     const onLeagueClicked = value => () => {
         setSelectedLeague(value);
         //setSelectedLeagueId(leagueList[value])
-        //props.setLeagueId(leagueList[value]);
+        props.setLeagueId(leagueList[value]);
         setIsOpen(false);
       };
     return (
@@ -124,8 +116,6 @@ function getKeyByValue(object, value) {
           <h4>League</h4>
           <DropDownContainer>
           <DropDownHeader onClick={toggling}>{selectedLeague}</DropDownHeader>
-          {/* <DropDownHeader onClick={toggling}>{selectedLeague? selectedLeague:setSelectedLeague(getKeyByValue(leagueList,237))}</DropDownHeader> */}
-            {/* <DropDownHeader onClick={toggling}>{selectedLeague? selectedLeague: leagueList[237]}</DropDownHeader> */}
             {isOpen && (
             <DropDownListContainer>
               <DropDownList>

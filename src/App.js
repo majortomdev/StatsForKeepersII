@@ -19,7 +19,7 @@ function App() {
   return (
 
     <div className="App">
-      <header className="App-header"><h1 className="font-Adler"> Footie Stats For Fans</h1> </header>
+      <header className="App-header"><h1 className="font-Adler">Goals and Stats</h1> </header>
           {/* <TopScorers></TopScorers> */}
           <Leagues leagueId={leagueId} setLeagueId={setLeagueId}></Leagues>
           {console.log("QQQQQQQleagueId =   "+leagueId +" , year=  "+year)}

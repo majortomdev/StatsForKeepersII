@@ -10,13 +10,14 @@ const LeagueStandings = (props) => {
     const year = props.year;
 
     useEffect(() => {
-        console.log("LeagueStnadings <useEffect>   "+leagueId+",  "+year);
+        //console.log("LeagueStnadings RESET TO   "+leagueId+",  "+year);
         getSeasonId();
         getStandings();
     }, [leagueId, year])
 
     const [season, setSeason] = useState(1980);
     const getSeasonId = () => {
+        console.log("SENDING REQST TO /soccer/getSeasonId?leagueId="+leagueId+"&year="+year)
         axios.get("/soccer/getSeasonId?leagueId="+leagueId+"&year="+year)
         .then((response) => {
             const newSeason = response.data;
@@ -25,6 +26,7 @@ const LeagueStandings = (props) => {
     }
 
     const getStandings = () => {
+        console.log("SENDIND REQST TO /soccer/standings/"+season)
         axios.get("/soccer/standings/"+season)
         .then((TeamStats) => {
             const statsArray = TeamStats.data;
@@ -39,7 +41,7 @@ const LeagueStandings = (props) => {
         <>
             {/* <button>Get League Standings</button> */}
 
-            <h5>Final Positions for Season xxx</h5>
+            <h5>Final Positions for Season {year}</h5>
 
 
             {/* <table className="table"> */}
@@ -52,7 +54,7 @@ const LeagueStandings = (props) => {
                     <th>Wins</th>
                     <th>Losses</th>
                     <th>Draws</th>
-                    <th>GoalDiff</th>
+                    <th>+-</th>
                     <th className="bold">Points</th>
                 </tr>
                 {data.map((standing, i) => (
